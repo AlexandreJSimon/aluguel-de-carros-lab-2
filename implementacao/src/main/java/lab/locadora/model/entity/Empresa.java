@@ -14,6 +14,5 @@ import javax.persistence.Table;
 @Getter
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor
 public class Empresa extends Agente {
 }

@@ -9,7 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 @Getter
-@Builder
 @MappedSuperclass
 @AllArgsConstructor
 @NoArgsConstructor

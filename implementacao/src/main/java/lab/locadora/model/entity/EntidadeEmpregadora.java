@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Entidade_empregadora")
 @Getter
-@Builder
 @NoArgsConstructor
 public class EntidadeEmpregadora {
     @Id

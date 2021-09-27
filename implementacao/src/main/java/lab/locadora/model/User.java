@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Getter
-@Builder
 @MappedSuperclass
 @AllArgsConstructor
 @NoArgsConstructor
