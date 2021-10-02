@@ -29,7 +29,7 @@ public class Endereco {
     @Column
     private String rua;
     @Column
-    private Integer numero;
+    private String numero;
     @Column
     private String complemento;
 }
