@@ -13,6 +13,8 @@ import javax.persistence.Table;
 @Table(name = "cliente")
 @Getter
 @Setter
-@NoArgsConstructor
 public class Cliente extends Individual {
+    public Cliente() {
+        super();
+    }
 }

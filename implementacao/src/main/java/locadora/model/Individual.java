@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @MappedSuperclass
 public abstract class Individual extends User{
     @Column
@@ -23,7 +22,11 @@ public abstract class Individual extends User{
     @Column
     private String profissao;
 
-    @OneToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Endereco endereco;
+
+    public Individual() {
+        super();
+    }
 }

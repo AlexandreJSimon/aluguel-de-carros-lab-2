@@ -42,12 +42,13 @@ public class ClienteController {
             clienteBody.setCpf(body.getCpf());
             clienteBody.setRg(body.getRg());
             clienteBody.setProfissao(body.getProfissao());
+            clienteBody.setId(2L);
 
             Cliente cLienteEntity = clienteDTO.save(clienteBody);
 
-            return "cliente/form";
+            return "cliente/cadastradoSucesso";
         }catch (Exception e ){
-            return "cliente/form";
+            return "cliente/cadastradoErro";
         }
     }
 }
