@@ -42,7 +42,6 @@ public class ClienteController {
             clienteBody.setCpf(body.getCpf());
             clienteBody.setRg(body.getRg());
             clienteBody.setProfissao(body.getProfissao());
-            clienteBody.setId(2L);
 
             Cliente cLienteEntity = clienteDTO.save(clienteBody);
 
