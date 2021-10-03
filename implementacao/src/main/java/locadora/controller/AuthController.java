@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
 
@@ -22,17 +23,18 @@ public class AuthController {
     }
 
     @RequestMapping(value="/login", method=RequestMethod.POST)
-    public String login(authDao body){
+    public ModelAndView login(authDao body){
         try{
+            ModelAndView mv = new ModelAndView("menu");
 
             Optional<User> userEntity = userDTO.findByEmail(body.getEmail());
 
             if(userEntity.isPresent() && userEntity.get().getPassword().equals(body.getPassword())){
-                return "menu";
+                return mv.addObject("id", userEntity.get().getId());
             }
-            return "login";
+            return new ModelAndView("login");
         }catch (Exception e ){
-            return "error";
+            return new ModelAndView("error");
         }
     }
 
