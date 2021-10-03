@@ -15,7 +15,6 @@ public class ClienteController {
     @Autowired
     private ClienteDTO clienteDTO;
 
-
     @RequestMapping("/cliente/form")
     public String indexteste(){
         return "cliente/form";
