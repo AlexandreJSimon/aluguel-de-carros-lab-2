@@ -2,6 +2,7 @@ package locadora.controller;
 
 import locadora.dao.cliente.CatastroDao;
 import locadora.dto.ClienteDTO;
+import locadora.model.User;
 import locadora.model.entity.Cliente;
 import locadora.model.entity.Endereco;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,10 @@ public class ClienteController {
                     .rua(body.getRua()).build();
             clienteBody.setEndereco(endereco);
 
-            clienteBody.setEmail(body.getEmail());
-            clienteBody.setPassword(body.getPassword());
+           User user = User.builder()
+                   .email(body.getEmail())
+                   .password(body.getPassword()).build();
+           clienteBody.setUser(user);
 
             clienteBody.setNome(body.getNome());
             clienteBody.setCpf(body.getCpf());
@@ -44,9 +47,9 @@ public class ClienteController {
 
             Cliente cLienteEntity = clienteDTO.save(clienteBody);
 
-            return "cliente/cadastradoSucesso";
+            return "index";
         }catch (Exception e ){
-            return "cliente/cadastradoErro";
+            return "error";
         }
     }
 }

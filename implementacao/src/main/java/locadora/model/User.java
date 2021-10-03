@@ -1,15 +1,18 @@
 package locadora.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
-@MappedSuperclass
+@Entity
+@Builder
 @AllArgsConstructor
-@NoArgsConstructor
-public abstract class User {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -20,4 +23,7 @@ public abstract class User {
 
     @Column
     private String password;
+
+    public User() {
+    }
 }

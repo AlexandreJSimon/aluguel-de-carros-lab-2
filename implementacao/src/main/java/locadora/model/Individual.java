@@ -9,7 +9,12 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @MappedSuperclass
-public abstract class Individual extends User{
+public abstract class Individual{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+
     @Column
     private String cpf;
 
@@ -25,6 +30,10 @@ public abstract class Individual extends User{
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Endereco endereco;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     public Individual() {
         super();
